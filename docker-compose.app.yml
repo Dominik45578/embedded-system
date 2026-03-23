@@ -1,0 +1,26 @@
+name: iot-application
+
+services:
+  mqtt-broker:
+    image: eclipse-mosquitto:${MOSQUITTO_VERSION}
+    container_name: iot_mqtt_broker
+    ports:
+      - "${MQTT_PORT}:1883"
+    volumes:
+      # Montujemy plik konfiguracyjny (wymagane w Mosquitto 2.0+)
+      - ./config/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      # Wolumeny na dane (trwałość wiadomości z QoS 1 i 2) oraz logi
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_log:/mosquitto/log
+    restart: unless-stopped
+    networks:
+      - app_network
+
+volumes:
+  mosquitto_data:
+  mosquitto_log:
+
+networks:
+  app_network:
+    external: true
+    name: ${APP_NETWORK_NAME}
