@@ -31,7 +31,7 @@ static const char FACTORY_DEFAULT_JSON[] = R"json(
     "write": true
   },
   "servo": {
-    "pin": 23,
+    "pin": 23,-
     "channel": 1,
     "freq": 50,
     "res": 16,
