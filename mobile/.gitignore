@@ -32,14 +32,11 @@ migrate_working_dir/
 .pub/
 /build/
 /coverage/
-
-
+.metadata
 
 # Symbolication related
 app.*.symbols
 lockly_app.im
-.metadata
-
 
 # Obfuscation related
 app.*.map.json
@@ -50,10 +47,10 @@ app.*.map.json
 /android/app/release
 
 #firebase
-google-services.json
+
 lib/firebase_options.dart
 GoogleService-Info.plist
-firebase.json
+google-services.json
 
 #android
 local.properties
