@@ -80,7 +80,7 @@ We maintain high enterprise standards for our codebase. Use these commands to ke
 # Examples
 
 ## WokWi Schema
-![WokWi](images/wokwi_schema.png)
+![WokWi](.github/images/wokwi_schema.png)
 
 ## App Login Page
-![App Login Page](images/app_login_page.jpg)
+![App Login Page](.github/images/app_login_page.jpg)

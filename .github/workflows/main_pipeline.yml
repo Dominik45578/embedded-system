@@ -94,7 +94,8 @@ jobs:
     if: needs.changes.outputs.mobile == 'true'
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Wymagane uprawnienie do publikacji Release
+      contents: write
+
     steps:
       - uses: actions/checkout@v4
 
@@ -110,9 +111,9 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      - name: Generate Gradle Wrapper
+      - name: Create local.properties
         working-directory: mobile/android
-        run: gradle wrapper
+        run: echo "flutter.sdk=$FLUTTER_ROOT" > local.properties
 
       - name: Grant execute permission for gradlew
         run: chmod +x mobile/android/gradlew
@@ -126,7 +127,7 @@ jobs:
           echo "$GOOGLE_SERVICES_BASE64" | base64 --decode > android/app/google-services.json
           echo "$FIREBASE_OPTIONS_BASE64" | base64 --decode > lib/firebase_options.dart
 
-      - name: Get packages and build APK
+      - name: Build APK
         working-directory: mobile
         run: |
           flutter pub get
@@ -142,7 +143,6 @@ jobs:
 
       - name: Publish GitHub Release
         uses: softprops/action-gh-release@v2
-        # Uruchamia publikację TYLKO jeśli commit posiada tag zaczynający się od litery "v" (np. v1.0.0)
         if: startsWith(github.ref, 'refs/tags/v')
         with:
           files: mobile/build/app/outputs/flutter-apk/app-release.apk
