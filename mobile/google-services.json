@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "430113056762",
+    "project_id": "lockly-74741",
+    "storage_bucket": "lockly-74741.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430113056762:android:0b00e8c0c8c4a8b1ae6643",
+        "android_client_info": {
+          "package_name": "pl.edu.polibuda.lockly"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmIJdatTR7_qcN68Pe6ORmdguXax5EgD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
